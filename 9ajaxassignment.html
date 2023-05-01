@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" rel="stylesheet" href="bootstrap/css/bootstrap.min.css"/>
+    <script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <title> Sight </title>
+    <script>
+        function loadData(element){
+            var xmlhttp;
+            if (window.XMLHttpRequest){
+                xmlhttp=new XMLHttpRequest();
+            }
+            else{ 
+                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange=function(){
+                if(xmlhttp.readyState==4 && xmlhttp.status==200){
+                    document.getElementById("myModalBody").innerHTML=xmlhttp.responseText;
+                }
+            }
+
+            switch(element.id){
+                case 'img1': xmlhttp.open("GET","descriptions/sight1.html",true); break;
+                case 'img2': xmlhttp.open("GET","descriptions/sight2.html",true); break;
+                case 'img3': xmlhttp.open("GET","descriptions/sight3.html",true); break;
+                case 'img4': xmlhttp.open("GET","descriptions/sight4.html",true); break;
+                case 'img5': xmlhttp.open("GET","descriptions/sight5.html",true); break;
+                case 'img6': xmlhttp.open("GET","descriptions/sight6.html",true); break;
+            }
+            xmlhttp.send();
+        }
+    </script>
+</head>
+<body background="images/j.jpeg">
+    <br />
+    <h2 align="center"> Sight Seeing </h2>
+    <br /><br />
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <a data-toggle="modal" href="#myModal"><img id="img1" onclick="loadData(this)" src="images/i.jpeg" width="85%" height="100%"/></a>
+            </div>
+            <div class="col-md-4">
+                <a data-toggle="modal" href="#myModal"><img id="img2" onclick="loadData(this)" src="images/j.jpeg" width="85%" height="100%"/></a>
+            </div>
+            <div class="col-md-4">
+                <a data-toggle="modal" href="#myModal"><img id="img3" onclick="loadData(this)" src="images/k.jpeg" width="85%" height="100%"/></a>
+            </div>
+        </div>
+        <br /><br /><br /><br />
+        <div class="row">
+            <div class="col-md-4">
+                <a data-toggle="modal" href="#myModal"><img id="img4" onclick="loadData(this)" src="images/l.jpeg" width="85%" height="100%"/></a>
+            </div>
+            <div class="col-md-4">
+                <a data-toggle="modal" href="#myModal"><img id="img5" onclick="loadData(this)" src="images/m.jpeg" width="85%" height="100%"/></a>
+            </div>
+            <div class="col-md-4">
+                <a data-toggle="modal" href="#myModal"><img id="img6" onclick="loadData(this)" src="images/n.jpeg" width="85%" height="100%"/></a>
+            </div>
+        </div>
+    </div>
+    <!--Modal Starts-->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" id="myModalHeader">
+                    <h2> Sight View </h2>
+                </div>
+                <div class="modal-body" id="myModalBody">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Got It</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
